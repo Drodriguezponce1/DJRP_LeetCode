@@ -1,0 +1,42 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        
+        Integer b = x;
+        int count = 0;
+        int counter = findLength(x);
+
+        while(x != 0 && counter != 0)
+        {
+            count += (x % 10) * Math.pow(10,counter -1);
+
+            x/=10;
+            counter--;
+        }
+
+
+        Integer a = count;
+        
+
+        if(a.equals(b) && b > 0 && b != 2147483647|| b==0 )
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public int findLength(int x)
+    {
+        int counter = 0;
+
+        while(x != 0)
+        {
+            counter++;
+
+            x /= 10;
+        }
+
+        return counter;
+
+    }
+}
